@@ -1,6 +1,9 @@
 package ru.ismoke;
 
+import java.util.Scanner;
+
 class Employee implements Comparable<Employee> {
+    public static byte length;
     private String firstName;
     private String lastName;
     private String patronymic;
@@ -32,7 +35,6 @@ class Employee implements Comparable<Employee> {
     }
 
     public int getDepartment() {
-
         return this.departement;
     }
 
@@ -83,4 +85,8 @@ class Employee implements Comparable<Employee> {
     public int compareTo(Employee human) {
         return (int) (salary - human.getcharges_salary());
     }
+
+
+
 }
+

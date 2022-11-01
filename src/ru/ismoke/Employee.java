@@ -77,7 +77,7 @@ class Employee implements Comparable<Employee> {
         return lastName;
     }
 
-    public String toString() {
+     public String toString() {
         return "Идентификатор: " + this.id + " Фамилия: " + lastName + ", Имя: " + firstName + ", Отчество: " + patronymic + "\n" +
                 "Департамент: " + departement + ", Размер зарплаты: " + salary + "\n";
     }

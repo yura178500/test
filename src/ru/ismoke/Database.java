@@ -6,20 +6,20 @@ import java.util.List;
 import java.util.Scanner;
 
 class Database {
-    private List<ru.ismoke.Employee> db = new ArrayList<>();
+    private static List<ru.ismoke.Employee> db = new ArrayList<>();
 
     Employee addEmployee(Employee human) {
         db.add(human);
         return human;
     }
 
-    void EmployeeWithMaxСharges() {
+    void EmployeeWithMaxSalary() {
         Collections.sort(db);
         System.out.println("Работник с самым большим размером зарплаты: ");
         System.out.println(Collections.max(db));
     }
 
-    void EmployeeWithMinСharges() {
+    void EmployeeWithMinSalary() {
         Collections.sort(db);
         System.out.println("Работник с самым маленьким размером зарплаты: ");
         System.out.println(Collections.min(db));
@@ -29,7 +29,7 @@ class Database {
         int count = 0;
         float sum = 0;
         for (ru.ismoke.Employee aDb : db) {
-            sum = +aDb.getcharges_salary();
+            sum = +aDb.getsalary();
             count++;
         }
         System.out.println("Средний размер зарплаты  : " + (1. * sum / count));
@@ -39,7 +39,7 @@ class Database {
         int count = 0;
         float sum = 0;
         for (ru.ismoke.Employee aDb : db) {
-            sum = +aDb.getcharges_salary();
+            sum = +aDb.getsalary();
             count++;
         }
         System.out.println("Сумма размера зарплаты  : " + (1. * sum * count));
@@ -95,28 +95,27 @@ class Database {
             number = (byte) Float.parseFloat(scan.next());
             System.out.print("Введите процент: ");
             percent = Float.parseFloat(scan.next());
-            for (byte i = 0; i < db.size(); i++) {
+            byte i;
+            for (i = 0; i < db.size(); i++) {
                 if (db.get(i) != null) {
-                    db.get(i).setSalary(db.get(i).getSalary() + db.get(i).getSalary() * percent);
+                    db.get(i).setSalary(db.get(i).getsalary() + db.get(i).getsalary() * percent);
+
                 }
             }
-
             System.out.println("Зарплаты подняты на " + percent * 100 + " процентов");
 
             break;
         }
     }
-
-
-    public static void departmentNumber(Employee[] arr, byte number) {
+    public static byte departmentNumber() {
         Scanner scan = new Scanner(System.in);
-        byte number;
+        byte find;
         System.out.print("Введите отдел: ");
-        number = (byte) Float.parseFloat(scan.next());
+        find = Byte.parseByte(scan.next());
         byte k = 0;
-        if (number < 6 || number > 0) {
-            for (byte i = 0; i < arr.length; i++) {
-                if (arr[i].getDepartment() == number) {
+        if (find < 6 || find > 0) {
+            for (byte i = 0; i < db.size(); i++) {
+                if (db.get(i).getDepartment() == find) {
                     k++;
                 }
             }
@@ -124,6 +123,9 @@ class Database {
         }
         return k;
     }}
+
+
+
 
 
 

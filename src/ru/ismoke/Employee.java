@@ -69,7 +69,7 @@ class Employee implements Comparable<Employee> {
     }
 
 
-    float getcharges_salary() {
+    float getsalary() {
         return salary;
     }
 
@@ -83,10 +83,8 @@ class Employee implements Comparable<Employee> {
     }
 
     public int compareTo(Employee human) {
-        return (int) (salary - human.getcharges_salary());
+        return (int) (salary - human.getsalary());
     }
-
-
 
 }
 
